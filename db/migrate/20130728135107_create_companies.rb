@@ -1,15 +1,15 @@
 class CreateCompanies < ActiveRecord::Migration
   def change
     create_table :companies do |t|
-      t.string :name
-      t.text :description
-      t.string :url
-      t.string :twitter
-      t.integer :category_id
-      t.string :crunchbase
-      t.text :address
+      t.string :name,         null: false
+      t.string :tagline,      null: false, default: ""
+      t.text   :description,  null: false, default: ""
+      t.text   :address,      null: false, default: ""
+      t.string :url,          null: false, default: ""
+      t.string :twitter,      null: false, default: ""
+      t.string :crunchbase,   null: false, default: ""
 
-      t.text :tags
+      t.text :tags, null: false
 
       t.timestamps
     end

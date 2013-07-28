@@ -10,6 +10,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'devise'
+gem 'foreigner'
+gem 'paper_trail', github: "airblade/paper_trail", branch: 'rails4'
 
 gem 'omniauth'
 gem 'omniauth-facebook'

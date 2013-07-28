@@ -1,8 +1,8 @@
 class Company < ActiveRecord::Base
   serialize :tags, Array
+  has_paper_trail
 
   def tags=(data)
-    data = data.split(',') if data.is_a?(String)
-    super(data)
+    super(data.to_a)
   end
 end

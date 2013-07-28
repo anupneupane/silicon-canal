@@ -11,29 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130728150115) do
+ActiveRecord::Schema.define(version: 20130728173220) do
 
   create_table "companies", force: true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "url"
-    t.string   "twitter"
-    t.integer  "category_id"
-    t.string   "crunchbase"
-    t.text     "address"
-    t.text     "tags"
+    t.string   "name",                     null: false
+    t.string   "tagline",     default: "", null: false
+    t.text     "description", default: "", null: false
+    t.text     "address",     default: "", null: false
+    t.string   "url",         default: "", null: false
+    t.string   "twitter",     default: "", null: false
+    t.string   "crunchbase",  default: "", null: false
+    t.text     "tags",                     null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "people", force: true do |t|
-    t.string   "name"
-    t.text     "bio"
-    t.string   "twitter"
-    t.string   "linkedin"
-    t.string   "url"
-    t.string   "email"
-    t.text     "skills"
+    t.string   "name",                    null: false
+    t.string   "tagline",    default: "", null: false
+    t.text     "bio",        default: "", null: false
+    t.string   "twitter",    default: "", null: false
+    t.string   "linkedin",   default: "", null: false
+    t.string   "url",        default: "", null: false
+    t.string   "email",      default: "", null: false
+    t.text     "skills",                  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,14 +50,26 @@ ActiveRecord::Schema.define(version: 20130728150115) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "name"
+    t.boolean  "admin"
     t.string   "provider"
     t.string   "uid"
-    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "versions", force: true do |t|
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
 
 end

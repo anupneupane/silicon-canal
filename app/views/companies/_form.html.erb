@@ -28,10 +28,6 @@
     <%= f.text_field :twitter %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.number_field :category_id %>
-  </div>
-  <div class="field">
     <%= f.label :tags %><br>
     <%= f.text_field :tags, value: @company.tags.join(",") %>
   </div>

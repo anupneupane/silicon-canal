@@ -1,0 +1,33 @@
+= image_tag @person.image_url
+
+%p
+    %strong Name:
+    = @person.name
+
+%p
+    %strong Bio:
+    = @person.bio
+
+%p
+    %strong Twitter:
+    = @person.twitter
+
+%p
+    %strong Linkedin:
+    = @person.linkedin
+
+%p
+    %strong Url:
+    = @person.url
+
+%p
+    %strong Skills:
+    = @person.skills
+
+%p
+    %strong Email:
+    = @person.email
+
+= link_to 'Edit', edit_person_path(@person)
+\|
+= link_to 'Back', people_path 
