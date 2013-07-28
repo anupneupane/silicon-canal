@@ -5,7 +5,13 @@ describe Company do
     it "should find correct companies by name" do
       company1 = create :company, name: "arrow"
       company2 = create :company, name: "dogs"
-      Company.search("a").should == [company1]
+      Company.search(criteria: "a").should == [company1]
+    end
+
+    it "should filter by tag" do
+      company1 = create(:company, tags: ["qwe"])
+      company2 = create(:company, tags: ["asd"])
+      Company.search(tag: "qwe").should == [company1]
     end
   end
 

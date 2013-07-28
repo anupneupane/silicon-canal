@@ -23,6 +23,14 @@ describe PeopleController do
       get :index, {}, valid_session
       assigns(:people).should eq([person])
     end
+
+    it "filters by skill" do
+      person1 = create(:person, skills: ["qwe"])
+      person2 = create(:person, skills: ["asd"])
+      Person.should_receive(:search).with(skill: "qwe").and_return([person1])
+      get :index, {skill: "qwe"}, valid_session
+      assigns(:people).should eq([person1])
+    end
   end
 
   describe "GET show" do

@@ -4,7 +4,7 @@ class PeopleController < ApplicationController
 
   # GET /people
   def index
-    @people = Person.all
+    @people = Person.search(skill: params[:skill])
   end
 
   # GET /people/1

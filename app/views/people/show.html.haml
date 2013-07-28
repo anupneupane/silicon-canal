@@ -22,7 +22,8 @@
 
 %p
     %strong Skills:
-    = @person.skills
+    -@person.skills.each do |skill|
+        =link_to skill, people_path(skill: skill)
 
 %p
     %strong Email:

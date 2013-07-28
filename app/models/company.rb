@@ -7,8 +7,11 @@ class Company < ActiveRecord::Base
   end
 
   class << self 
-    def search(criteria)
-      where("name like ?", "#{criteria}%")
+    def search(criteria: nil, tag: nil)
+      results = self.all
+      results = results.where("name like ?", "#{criteria}%") if criteria
+      results = results.where("tags LIKE ?", "%#{tag}%") if tag
+      results
     end
   end
 end

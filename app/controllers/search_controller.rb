@@ -1,7 +1,10 @@
 class SearchController < ApplicationController
   def index
+    companies = Company.search(criteria: params[:criteria])
+    people = Person.search(criteria: params[:criteria])
     render json: {
-      companies: Company.search(params[:criteria]).map{|c| c.slice(:id, :name) }
+      companies: companies.map{|c| c.slice(:id, :name) },
+      people: people.map{|c| c.slice(:id, :name) }
     }
   end
 end

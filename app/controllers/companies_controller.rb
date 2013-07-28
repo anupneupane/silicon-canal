@@ -4,7 +4,7 @@ class CompaniesController < ApplicationController
 
   # GET /companies
   def index
-    @companies = Company.all
+    @companies = Company.search(tag: params[:tag])
   end
 
   # GET /companies/1

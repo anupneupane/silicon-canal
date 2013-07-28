@@ -41,6 +41,14 @@ describe CompaniesController do
       get :index, {}, valid_session
       assigns(:companies).should eq([company])
     end
+    it "filters by tag" do
+      company1 = create(:company, tags: ["qwe"])
+      company2 = create(:company, tags: ["asd"])
+      Company.should_receive(:search).with(tag: "qwe").and_return([company1])
+      get :index, {tag: "qwe"}, valid_session
+      assigns(:companies).should eq([company1])
+    end
+
   end
 
   describe "GET show" do

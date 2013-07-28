@@ -14,4 +14,17 @@ describe Person do
       person.skills.should == ["developer", "designer"]
     end
   end
+
+  describe "search" do
+    it "should find correct companies by name" do
+      person1 = create :person, name: "arrow"
+      person2 = create :person, name: "dogs"
+      Person.search(criteria: "a").should == [person1]
+    end
+    it "should search by skill" do
+      person1 = create(:person, skills: ["qwe"])
+      person2 = create(:person, skills: ["asd"])
+      Person.search(skill: "qwe").should == [person1]
+    end
+  end
 end
