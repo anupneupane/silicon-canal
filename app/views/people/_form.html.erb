@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :skills %><br>
-    <%= f.text_field :skills %>
+    <%= f.text_field :skills, value: @person.skills.join(",") %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
@@ -43,3 +43,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+  $('#person_skills').tagsInput();
+</script>

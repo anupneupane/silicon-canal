@@ -7,4 +7,9 @@ class Person < ActiveRecord::Base
     image_src = "http://www.gravatar.com/avatar/#{hash}"
   end
 
+  def skills=(data)
+    data = data.split(',') if data.is_a?(String)
+    super(data)
+  end
+
 end

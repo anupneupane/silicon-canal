@@ -33,7 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :tags %><br>
-    <%= f.text_field :tags %>
+    <%= f.text_field :tags, value: @company.tags.join(",") %>
   </div>
   <div class="field">
     <%= f.label :crunchbase %><br>
@@ -47,3 +47,6 @@
     <%= f.submit %>
   </div>
 <% end %>
+<script>
+  $('#company_tags').tagsInput();
+</script>

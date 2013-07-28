@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20130728135325) do
     t.string   "url"
     t.string   "twitter"
     t.integer  "category_id"
-    t.string   "tags"
     t.string   "crunchbase"
     t.text     "address"
+    t.text     "tags"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20130728135325) do
     t.string   "twitter"
     t.string   "linkedin"
     t.string   "url"
-    t.string   "skills"
-    t.text     "email"
+    t.string   "email"
+    t.text     "skills"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
