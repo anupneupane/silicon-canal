@@ -18,6 +18,8 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
 
+gem 'coveralls', require: false
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
