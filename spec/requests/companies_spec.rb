@@ -2,9 +2,15 @@ require 'spec_helper'
 
 describe "Companies" do
   describe "GET /companies" do
-    it "works! (now write some real specs)" do
+    it "works" do
       get companies_path
       response.status.should be(200)
+    end
+    describe "GET /company/1" do
+      it "works" do
+        get company_path create(:company)
+        response.status.should be(200)
+      end
     end
 
     it "should require login" do
