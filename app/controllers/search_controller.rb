@@ -2,9 +2,15 @@ class SearchController < ApplicationController
   def index
     companies = Company.search(criteria: params[:criteria])
     people = Person.search(criteria: params[:criteria])
-    render json: {
-      companies: companies.map{|c| c.slice(:id, :name) },
-      people: people.map{|c| c.slice(:id, :name) }
-    }
+      
+    results = {
+      companies: companies,
+      people: people
+    }.inject({}) do |h,(k,v)|
+      h[k] = v.map { |i| i.slice(:id, :name) }
+      h
+    end
+
+    render json: results
   end
 end
