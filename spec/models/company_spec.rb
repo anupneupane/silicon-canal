@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe Company do
+  describe "search" do
+    it "should find correct companies by name" do
+      company1 = create :company, name: "arrow"
+      company2 = create :company, name: "dogs"
+      Company.search("a").should == [company1]
+    end
+  end
+
   describe "tags" do
     it "should save tags correctly" do
       tags = ["agency", "startup"]
