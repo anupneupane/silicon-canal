@@ -6,9 +6,9 @@ class SearchController < ApplicationController
     results = {
       companies: companies,
       people: people
-    }.inject({}) do |h,(k,v)|
-      h[k] = v.map { |i| i.slice(:id, :name) }
-      h
+    }.inject({}) do | hash, (key,values) |
+      hash[key] = values.map { |item| item.slice(:id, :name) }
+      hash
     end
 
     render json: results
