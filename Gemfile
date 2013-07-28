@@ -17,6 +17,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
+gem 'draper'
 
 gem 'coveralls', require: false
 
