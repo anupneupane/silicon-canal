@@ -6,13 +6,21 @@ describe SearchController do
     it "should call search with params" do
       Company.should_receive(:search).with(criteria:"foobar").and_return([])
       Person.should_receive(:search).with(criteria:"foobar").and_return([])
-      get :index, {criteria: "foobar"}
+      get :index, {criteria: "foobar", format: :json}
     end
 
-    it "should find companies" do
+    it "should render html" do
       company = create :company, name: "arrow"
       person = create :person, name: "andy"
-      get :index, {criteria: "a"}
+      get :index, {criteria: "a", format: :html}
+      assigns(:people).should eq([person])
+      assigns(:companies).should eq([company])
+    end
+
+    it "should render json" do
+      company = create :company, name: "arrow"
+      person = create :person, name: "andy"
+      get :index, {criteria: "a", format: :json}
       expected = {
         companies: [{
           id: company.id,

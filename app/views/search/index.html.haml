@@ -1,0 +1,7 @@
+%h2 Companies
+-@companies.each do |company|
+    =link_to company.name, company
+
+%h2 People
+-@people.each do |person|
+    =link_to person.name, person

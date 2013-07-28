@@ -9,6 +9,13 @@
     %body
 
         %h1 Silicon Canal
+        %hr
+        =link_to "Companies", companies_path
+        =link_to "People", people_path
+        =form_tag search_path, method: :get do
+            =text_field_tag(:criteria)
+            =submit_tag("Search")
+        %hr
 
         %p.notice= notice
         %p.alert= alert
