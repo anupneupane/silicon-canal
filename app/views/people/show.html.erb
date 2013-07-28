@@ -1,0 +1,40 @@
+<%= image_tag @person.image_url %>
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @person.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @person.bio %>
+</p>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @person.twitter %>
+</p>
+
+<p>
+  <strong>Linkedin:</strong>
+  <%= @person.linkedin %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @person.url %>
+</p>
+
+<p>
+  <strong>Skills:</strong>
+  <%= @person.skills %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @person.email %>
+</p>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
