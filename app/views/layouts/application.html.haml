@@ -12,6 +12,7 @@
         %hr
         =link_to "Companies", companies_path
         =link_to "People", people_path
+        =link_to "Sign Out", destroy_user_session_path, method: :delete
         =form_tag search_path, method: :get do
             =text_field_tag(:criteria)
             =submit_tag("Search")
