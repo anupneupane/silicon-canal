@@ -7,6 +7,25 @@
 
 The source code to the Silicon Canal site.
 
+### Running It Locally
+
+```
+git clone git@github.com:iHiD/silicon-canal.git
+cd silicon-canal
+bundle
+bundle exec rake db:migrate db:seed
+bundle exec rails s
+open localhost:3000
+```
+
+### Running The Tests
+
+The tests are written in rspec. Download and bundle (as above), and then run:
+```
+bundle exec rake db:migrate RAILS_ENV=test
+bundle exec rspec spec
+```
+
 ### Licence
 
 Copyright 2013 Jeremy Walker. Free to use under the MIT-LICENSE.
