@@ -7,6 +7,8 @@
 
 The source code to the Silicon Canal site.
 
+This code requires Ruby 2.
+
 ### Running It Locally
 
 ```
