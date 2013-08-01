@@ -1,5 +1,9 @@
 SiliconCanal::Application.routes.draw do
 
+  resources :categories
+
+  resources :events
+
   devise_for :users
 
   post "versions/:id/revert" => "versions#revert", :as => "revert_version"

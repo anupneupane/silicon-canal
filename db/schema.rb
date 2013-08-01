@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130728173220) do
+ActiveRecord::Schema.define(version: 20130801064457) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories_events", id: false, force: true do |t|
+    t.integer "category_id"
+    t.integer "event_id"
+  end
+
+  add_index "categories_events", ["category_id", "event_id"], name: "index_categories_events_on_category_id_and_event_id"
+
+  create_table "categories_users", id: false, force: true do |t|
+    t.integer "category_id"
+    t.integer "user_id"
+  end
+
+  add_index "categories_users", ["category_id", "user_id"], name: "index_categories_users_on_category_id_and_user_id"
 
   create_table "companies", force: true do |t|
     t.string   "name",                     null: false
@@ -22,6 +42,19 @@ ActiveRecord::Schema.define(version: 20130728173220) do
     t.string   "twitter",     default: "", null: false
     t.string   "crunchbase",  default: "", null: false
     t.text     "tags",                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "name"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.text     "description"
+    t.string   "location"
+    t.string   "website"
+    t.integer  "created_by"
+    t.integer  "updated_by"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
