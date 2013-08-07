@@ -8,6 +8,7 @@
       <th>Ends at</th>
       <th>Description</th>
       <th>Location</th>
+      <th>Categories</th>
       <th>Website</th>
       <th>Created by</th>
       <th>Updated by</th>
@@ -25,6 +26,7 @@
         <td><%= event.ends_at %></td>
         <td><%= event.description %></td>
         <td><%= event.location %></td>
+        <td><%= event.categories.map(&:name).to_sentence %></td>
         <td><%= event.website %></td>
         <td><%= event.created_by %></td>
         <td><%= event.updated_by %></td>

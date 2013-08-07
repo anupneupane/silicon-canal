@@ -1,6 +1,6 @@
 class CreateTableCategoriesUsers < ActiveRecord::Migration
   def change
-    create_table :user_event_categories, :id => false do |t|
+    create_table :user_event_categories do |t|
       t.integer :event_category_id, null: false
       t.integer :user_id, null: false
       t.timestamps

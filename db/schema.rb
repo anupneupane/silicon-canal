@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20130801064457) do
     t.datetime "updated_at"
   end
 
-  create_table "event_category_events", id: false, force: true do |t|
+  create_table "event_category_events", force: true do |t|
     t.integer  "event_category_id", null: false
     t.integer  "event_id",          null: false
     t.datetime "created_at"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20130801064457) do
     t.datetime "updated_at"
   end
 
-  create_table "user_event_categories", id: false, force: true do |t|
+  create_table "user_event_categories", force: true do |t|
     t.integer  "event_category_id", null: false
     t.integer  "user_id",           null: false
     t.datetime "created_at"

@@ -24,8 +24,13 @@ Person.create name: "Simon Jenner", email: "simon@oxygenaccelerator.com"
 Person.create name: "Kath Preston", email: "kath@oxygenaccelerator.com"
 Person.create name: "Stuart Bates" , email: "stuart@builtbyclick.com"
 
-Category.create name: "WordPress"
-Category.create name: "Design"
-Category.create name: "Growth Hacking"
-Category.create name: "Usability"
-Category.create name: "Lean Methodology"
+EventCategory.create name: "WordPress"
+EventCategory.create name: "Design"
+EventCategory.create name: "Growth Hacking"
+EventCategory.create name: "Usability"
+EventCategory.create name: "Lean Methodology"
+startups_event_category = EventCategory.create name: "Startups"
+networking_category = EventCategory.create name: "Networking"
+
+Event.create name: "Silicon Canal", categories: [startups_event_category, networking_category]
+Event.create name: "Birmingham Entrepreneurs", categories: [startups_event_category]

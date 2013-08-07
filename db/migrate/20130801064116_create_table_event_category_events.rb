@@ -1,6 +1,6 @@
 class CreateTableEventCategoryEvents < ActiveRecord::Migration
   def change
-    create_table :event_category_events, :id => false do |t|
+    create_table :event_category_events do |t|
       t.integer :event_category_id, null: false
       t.integer :event_id, null: false
       t.timestamps
