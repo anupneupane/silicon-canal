@@ -3,24 +3,28 @@
     %head
         %title Silicon Canal
         = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+        = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css"
         = javascript_include_tag "application", "data-turbolinks-track" => true
         = csrf_meta_tags
 
     %body
 
-        %h1 Silicon Canal
-        %hr
-        =link_to "Companies", companies_path
-        =link_to "People", people_path
-        =link_to "Events", events_path
-        =link_to "Event Categories", event_categories_path
-        =link_to "Sign Out", destroy_user_session_path, method: :delete
-        =form_tag search_path, method: :get do
-            =text_field_tag(:criteria)
-            =submit_tag("Search")
-        %hr
+        .container
+            .row
+                .col-4
+                    %h1 Silicon Canal
+                .col-4
+                    =link_to "Companies", companies_path
+                    =link_to "People", people_path
+                    =link_to "Events", events_path
+                    =link_to "Event Categories", event_categories_path
+                    =link_to "Sign Out", destroy_user_session_path, method: :delete
+                .col-4
+                    =form_tag search_path, method: :get do
+                        =text_field_tag(:criteria)
+                        =submit_tag("Search")
 
-        %p.notice= notice
-        %p.alert= alert
-        
-        =yield
+            %p.notice= notice
+            %p.alert= alert
+            
+            =yield
