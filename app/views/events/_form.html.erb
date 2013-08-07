@@ -44,7 +44,7 @@
     <%= f.number_field :updated_by %>
   </div>
   
-  <% Category.all.each do |category| %>
+  <% EventCategory.all.each do |category| %>
     <div>
       <%= check_box_tag "event[category_ids][]", category.id, @event.categories.include?(category), :id => "category_#{category.id}" %>
       <%= label_tag "category_#{category.id}", category.name %>

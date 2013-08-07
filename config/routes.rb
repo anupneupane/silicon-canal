@@ -1,7 +1,6 @@
 SiliconCanal::Application.routes.draw do
 
-  resources :categories
-
+  resources :event_categories
   resources :events
 
   devise_for :users

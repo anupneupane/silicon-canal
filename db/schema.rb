@@ -13,26 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20130801064457) do
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "categories_events", id: false, force: true do |t|
-    t.integer "category_id"
-    t.integer "event_id"
-  end
-
-  add_index "categories_events", ["category_id", "event_id"], name: "index_categories_events_on_category_id_and_event_id"
-
-  create_table "categories_users", id: false, force: true do |t|
-    t.integer "category_id"
-    t.integer "user_id"
-  end
-
-  add_index "categories_users", ["category_id", "user_id"], name: "index_categories_users_on_category_id_and_user_id"
-
   create_table "companies", force: true do |t|
     t.string   "name",                     null: false
     t.string   "tagline",     default: "", null: false
@@ -42,6 +22,19 @@ ActiveRecord::Schema.define(version: 20130801064457) do
     t.string   "twitter",     default: "", null: false
     t.string   "crunchbase",  default: "", null: false
     t.text     "tags",                     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "event_categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "event_category_events", id: false, force: true do |t|
+    t.integer  "event_category_id", null: false
+    t.integer  "event_id",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,6 +61,13 @@ ActiveRecord::Schema.define(version: 20130801064457) do
     t.string   "url",        default: "", null: false
     t.string   "email",      default: "", null: false
     t.text     "skills",                  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_event_categories", id: false, force: true do |t|
+    t.integer  "event_category_id", null: false
+    t.integer  "user_id",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

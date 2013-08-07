@@ -106,7 +106,7 @@ describe EventsController do
         # specifies that the Event created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Event.any_instance.should_receive(:update).with({ "name" => "MyString", "category_ids" => [] })
+        Event.any_instance.should_receive(:update).with({ "name" => "MyString", "event_category_ids" => [] })
         put :update, {:id => event.to_param, :event => { "name" => "MyString" }}, valid_session
       end
 

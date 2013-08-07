@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe EventDecorator do
+describe EventCategory do
 end

@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
   has_paper_trail
-  has_and_belongs_to_many :categories
+  has_many :event_category_events
+  has_many :event_categories, through: :event_category_events
 end
