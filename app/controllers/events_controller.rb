@@ -1,9 +1,10 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :approve, :unapprove]
+  before_action :authenticate_admin!, only: [:approve, :unapprove]
 
   # GET /events
   def index
-    @events = Event.all
+    @events = Event.all.decorate
   end
 
   # GET /events/1
@@ -44,6 +45,18 @@ class EventsController < ApplicationController
     @event.destroy
     redirect_to events_url, notice: 'Event was successfully destroyed.'
   end
+  
+  # PATCH/PUT /events/1/approve
+  def approve
+    @event.update({:approved_at => Time.now})
+    redirect_to events_url, notice: 'Event was successfully approved.'
+  end
+  
+  # PATCH/PUT /events/1/unapprove
+  def unapprove
+    @event.update({:approved_at => nil})
+    redirect_to events_url, notice: 'Event was successfully unapproved.'
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -56,4 +69,5 @@ class EventsController < ApplicationController
       params[:event][:category_ids] ||= []
       params.require(:event).permit(:name, :starts_at, :ends_at, :description, :location, :website, :created_by, :updated_by, :category_ids => [])
     end
+
 end
